@@ -18,13 +18,13 @@ contract SocialRecoveryModule is Module {
 
     function setUp(bytes memory initializeParams) public override initializer {
         __Ownable_init();
-        (address _owner, address _sygnum) = abi.decode(
+        (address _owner, address _admin) = abi.decode(
             initializeParams,
             (address, address)
         );
         setAvatar(_owner);
         setTarget(_owner);
-        transferOwnership(_sygnum);
+        transferOwnership(_admin);
     }
 
     function swapOwner(
